@@ -1,0 +1,231 @@
+/* 
+   Shadowblade Profile Stylesheet
+   Theme: Futuristic / Cyberpunk
+   Palette: Dark Gray (#121212), Electric Blue (#00f2ff)
+*/
+
+:root {
+    --bg-color: #0a0a0c;
+    --card-bg: #161b22;
+    --accent-blue: #00f2ff;
+    --text-primary: #e6edf3;
+    --text-secondary: #8b949e;
+    --border-color: #30363d;
+    --glow-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--accent-blue);
+    padding-bottom: 1rem;
+    box-shadow: 0 4px 15px -10px var(--accent-blue);
+}
+
+h1.glitch-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 5px;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    text-shadow: var(--glow-shadow);
+}
+
+.tagline {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Flexbox Layout */
+.profile-layout {
+    display: flex;
+    flex-wrap: wrap; /* Responsive wrap */
+    gap: 2rem;
+}
+
+/* Left Column: Sidebar */
+.sidebar {
+    flex: 1 1 300px; /* Grow, shrink, basis */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profile-pic-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 2px solid var(--accent-blue);
+    padding: 10px;
+    background: linear-gradient(45deg, var(--card-bg), #000);
+    box-shadow: var(--glow-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-pic-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--accent-blue);
+    color: var(--accent-blue);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+}
+
+/* Decorative Scanline effect for placeholder */
+.profile-pic-placeholder::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-blue);
+    opacity: 0.3;
+    animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+.info-block h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+}
+
+.status-active {
+    color: #39ff14; /* Neon Green for active status */
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+}
+
+/* Right Column: Content */
+.content {
+    flex: 2 1 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 4px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--accent-blue);
+    transform: translateY(-2px);
+}
+
+.card h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-blue);
+    border-left: 4px solid var(--accent-blue);
+    padding-left: 10px;
+}
+
+.skills-list {
+    list-style: none;
+}
+
+.skills-list li {
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.skills-list li::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+}
+
+.skills-list span {
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+
+/* Timeline */
+.timeline {
+    border-left: 1px solid var(--border-color);
+    padding-left: 1.5rem;
+}
+
+.event {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.event::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.5rem - 5px);
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-blue);
+    border-radius: 50%;
+    box-shadow: var(--glow-shadow);
+}
+
+.date {
+    font-size: 0.8rem;
+    color: var(--accent-blue);
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Footer */
+footer {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1.glitch-text {
+        font-size: 2rem;
+    }
+    
+    .profile-layout {
+        flex-direction: column;
+    }
+}
